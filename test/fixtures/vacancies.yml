@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  no_of_vacancy: 1
+  eligibilty: MyString
+  technology: MyString
+  salary: 1
+  experience: 1
+  key_skilles: MyText
+
+two:
+  name: MyString
+  no_of_vacancy: 1
+  eligibilty: MyString
+  technology: MyString
+  salary: 1
+  experience: 1
+  key_skilles: MyText

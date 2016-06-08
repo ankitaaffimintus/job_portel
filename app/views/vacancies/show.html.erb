@@ -1,0 +1,35 @@
+<%- model_class = Vacancy -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:cpmpany_name) %>:</strong></dt>
+  <dd><%= @vacancy.company.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @vacancy.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:no_of_vacancy) %>:</strong></dt>
+  <dd><%= @vacancy.no_of_vacancy %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:eligibilty) %>:</strong></dt>
+  <dd><%= @vacancy.eligibilty %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:technology) %>:</strong></dt>
+  <dd><%= @vacancy.technology %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:salary) %>:</strong></dt>
+  <dd><%= @vacancy.salary %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:experience) %>:</strong></dt>
+  <dd><%= @vacancy.experience %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:key_skilles) %>:</strong></dt>
+  <dd><%= @vacancy.key_skilles %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:company_id) %>:</strong></dt>
+  <dd><%= @vacancy.company_id %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              vacancies_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_vacancy_path(@vacancy), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              vacancy_path(@vacancy),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

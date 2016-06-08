@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  address: MyText
+  contact: MyString
+  mark_10th: 1
+  mark_12th: 1
+  graduation: MyString
+  gra_mark: 1
+  post_graduation: MyString
+  post_gra_mark: 1
+
+two:
+  name: MyString
+  address: MyText
+  contact: MyString
+  10th_mark: 1
+  12_mark: 1
+  graduation: MyString
+  gra_mark: 1
+  post_graduation: MyString
+  post_gra_mark: 1

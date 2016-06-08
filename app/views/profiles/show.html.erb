@@ -1,0 +1,39 @@
+<%- model_class = Profile -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:Name) %>:</strong></dt>
+  <dd><%= @profile.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:Address) %>:</strong></dt>
+  <dd><%= @profile.address %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:Contact) %>:</strong></dt>
+  <dd><%= @profile.contact %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:Mark_10th) %>:</strong></dt>
+  <dd><%= @profile.mark_10th %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:Mark_12th) %>:</strong></dt>
+  <dd><%= @profile.mark_12th %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:Graduation) %>:</strong></dt>
+  <dd><%= @profile.graduation %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:Graduation_mark) %>:</strong></dt>
+  <dd><%= @profile.gra_mark %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:Post_graduation) %>:</strong></dt>
+  <dd><%= @profile.post_graduation %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:Post_Graduation_mark) %>:</strong></dt>
+  <dd><%= @profile.post_gra_mark %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              profiles_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_profile_path(@profile), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              profile_path(@profile),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+
+<%= link_to t('.Createcompany', :default => t("helpers.links.new")),
+            new_company_path,
+            :class => 'btn btn-primary' %>
