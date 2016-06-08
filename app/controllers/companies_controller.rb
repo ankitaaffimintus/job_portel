@@ -9,8 +9,8 @@ class CompaniesController < ApplicationController
   
   end
   def cities
-  render json: CS.cities(params[:state], :in).to_json
-end
+    render json: CS.cities(params[:state], :in).to_json
+  end
 
   def search_by_city
   if params[:search]
@@ -20,9 +20,6 @@ end
     end
     
   end
-
-  
-
   # GET /companies/1
   # GET /companies/1.json
   def show
