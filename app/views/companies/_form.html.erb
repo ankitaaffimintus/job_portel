@@ -1,84 +1,68 @@
 <%= form_for @company, :html => { :class => "form-horizontal company" } do |f| %>
 
-  <% if @company.errors.any? %>
-    <div id="error_expl" class="panel panel-danger">
+      <% if @company.errors.any? %>
+      <div id="error_expl" class="panel panel-danger">
       <div class="panel-heading">
-        <h3 class="panel-title"><%= pluralize(@company.errors.count, "error") %> prohibited this company from being saved:</h3>
+      <h3 class="panel-title"><%= pluralize(@company.errors.count, "error") %> prohibited this company from being saved:</h3>
       </div>
       <div class="panel-body">
-        <ul>
+      <ul>
         <% @company.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
-        </ul>
+      </ul>
       </div>
-    </div>
-  <% end %>
+      </div>
+      <% end %>
 
-  <div class="form-group">
-    <%= f.label :name, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
+      <div class="form-group">
+        <%= f.label :name, :class => 'control-label col-lg-2' %>
+      <div class="col-lg-10">
       <%= f.text_field :name, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:name) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :address, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
+      </div>
+      <%=f.error_span(:name) %>
+      </div>
+      <div class="form-group">
+      <%= f.label :address, :class => 'control-label col-lg-2' %>
+      <div class="col-lg-10">
       <%= f.text_field :address, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:address) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :contact, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
+      </div>
+      <%=f.error_span(:address) %>
+      </div>
+      <div class="form-group">
+      <%= f.label :contact, :class => 'control-label col-lg-2' %>
+      <div class="col-lg-10">
       <%= f.text_field :contact, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:contact) %>
-  </div>
- 
+      </div>
+      <%=f.error_span(:contact) %>
+      </div>
 
-
- <select name="state">
-<% CS.states(:us).each do |key, value| %>
-<option value="<%= key %>"><%= value %></option>
-<% end %>
-</select>
- 
-<select name="city">
-</select>
- 
-<script>
-$('select[name="state"]').change(function () {
-  var input_state = $(this);
-  $.getJSON('/cities/' + $(this).val(), function (data) {
-    input_state.empty();
-    $.each(data, function (i) {
-      var opt = '<option value='+ i +'>' + i + '</option>';
-      input_state.append(opt);
-    });
-  });
-});
-</script>
-
-
-  <div class="form-group">
-    <%= f.label :pincode, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
+      <div class="form-group">
+      <%= f.label :city, :class => 'control-label col-lg-2' %>
+      <div class="col-lg-10">
+      <%= f.text_field :city, :class => 'form-control' %>
+      </div>
+      <div class="form-group">
+       <%= f.label :state, :class => 'control-label col-lg-2' %>
+       <div class="col-lg-10">
+       <%= f.text_field :state, :class => 'form-control' %>
+      </div>
+      <div class="form-group">
+      <%= f.label :pincode, :class => 'control-label col-lg-2' %>
+      <div class="col-lg-10">
       <%= f.text_field :pincode, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:pincode) %>
-  </div>
+      </div>
+      <%=f.error_span(:pincode) %>
+      </div>
 
-  <div class="form-group">
-    <div class="col-lg-offset-2 col-lg-10">
+      <div class="form-group">
+      <div class="col-lg-offset-2 col-lg-10">
       <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 companies_path, :class => 'btn btn-default' %>
-    </div>
-  </div>
+      </div>
+      </div>
 
 <% end %>
- 
 
- `
+ 
