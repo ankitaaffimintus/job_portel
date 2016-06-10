@@ -1,15 +1,10 @@
 class RegistrationsController <   Devise::RegistrationsController
 	before_filter :configure_permitted_parameters
-
-
   def new
     super
   end
-
- 
   def create
-    
-    @user = User.new sign_up_params
+     @user = User.new sign_up_params
     if @user.save
       flash[:notice] = "You have signed up successfully. If enabled, a confirmation was sent to your e-mail."
       redirect_to root_url
@@ -18,8 +13,6 @@ class RegistrationsController <   Devise::RegistrationsController
       render :action => :new
     end
   end
-  
-
   protected
   def after_update_path_for resource
     edit_user_registration_path
@@ -27,11 +20,10 @@ class RegistrationsController <   Devise::RegistrationsController
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) do |u|
-      u.permit({ roles: [] },:first_name, :last_name, :contact, :email, :password, :password_confirmation)
-    end
-
+    u.permit({ roles: [] },:first_name, :last_name, :contact, :email, :password, :password_confirmation)
+  end
     devise_parameter_sanitizer.permit(:account_update) do |u|
-      u.permit(:first_name, :last_name, :contact, :email, :password, :password_confirmation,:current_password)
+    u.permit(:first_name, :last_name, :contact, :email, :password, :password_confirmation,:current_password)
     end
   end
 

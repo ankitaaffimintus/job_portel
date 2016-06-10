@@ -1,52 +1,41 @@
 <% if current_user.has_role?(:admin)%>
-
-<%- model_class = Company -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
-</div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-     
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:address) %></th>
-      <th><%= model_class.human_attribute_name(:contact) %></th>
-      <th><%= model_class.human_attribute_name(:city) %></th>
-      <th><%= model_class.human_attribute_name(:state) %></th>
-      <th><%= model_class.human_attribute_name(:pincode) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @companies.each do |company| %>
-      
-        <td><%= company.name %></td>
-        <td><%= company.address %></td>
-        <td><%= company.contact %></td>
-        <td><%= company.city %></td>
-        <td><%= company.state %></td>
-        <td><%= company.pincode %></td>
-        <td><%=l company.created_at %></td>
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_company_path(company), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      company_path(company),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-xs btn-danger' %>
-        </td>
+  <%- model_class = Company -%>
+  <div class="page-header">
+    <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= model_class.human_attribute_name(:name) %></th>
+        <th><%= model_class.human_attribute_name(:address) %></th>
+        <th><%= model_class.human_attribute_name(:contact) %></th>
+        <th><%= model_class.human_attribute_name(:city) %></th>
+        <th><%= model_class.human_attribute_name(:state) %></th>
+        <th><%= model_class.human_attribute_name(:pincode) %></th>
+        <th><%= model_class.human_attribute_name(:created_at) %></th>
+        <th><%=t '.actions', :default => t("helpers.actions") %></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @companies.each do |company| %>
+          <td><%= company.name %></td>
+          <td><%= company.address %></td>
+          <td><%= company.contact %></td>
+          <td><%= company.city %></td>
+          <td><%= company.state %></td>
+          <td><%= company.pincode %></td>
+          <td><%=l company.created_at %></td>
+          <td><%= link_to t('.edit', :default => t("helpers.links.edit")),edit_company_path(company), :class => 'btn btn-default btn-xs' %>
+            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),company_path(company), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger' %>
+          </td>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_company_path,
-            :class => 'btn btn-primary' %>
-<%end%>
+  <%= link_to t('.new', :default => t("helpers.links.new")),new_company_path, :class => 'btn btn-primary' %>
+<% end %>
+
 <%= form_tag(companies_search_by_city_path, :method => "get", id: "new-post") do %>
-            <%= text_field_tag :search, params[:search], placeholder: "Search by city",required: true %>
-            <%= submit_tag "Search", class: "btn btn-primary"  %>
-        <% end %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search by city",required: true %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>

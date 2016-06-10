@@ -11,8 +11,6 @@ class ApplicationController < ActionController::Base
   end
 
   def cities
-  
     render json: CS.cities(params[:state], :us).to_json
  	end
-
 end

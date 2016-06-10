@@ -4,7 +4,7 @@ class Profile < ActiveRecord::Base
  validates :mark_10th,    :numericality => true
  def a_method_used_for_validation_purposes
     errors[:gra_mark] = "cannot contain the characters !@#%*()_-+="
-  end
+ end
 validate :any_present?
 def any_present?
   if %w(name contact graduation).all?{|attr| self[attr].blank?}

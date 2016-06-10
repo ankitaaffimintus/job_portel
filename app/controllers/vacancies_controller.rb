@@ -58,8 +58,8 @@ class VacanciesController < ApplicationController
   def destroy
     @vacancy.destroy
     respond_to do |format|
-      format.html { redirect_to vacancies_url, notice: 'Vacancy was successfully destroyed.' }
-      format.json { head :no_content }
+    format.html { redirect_to vacancies_url, notice: 'Vacancy was successfully destroyed.' }
+    format.json { head :no_content }
     end
   end
 

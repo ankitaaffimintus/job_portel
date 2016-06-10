@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
  # get 'cities/:state', to: 'application#cities'
- get 'cities/:state', to: 'application#cities'
- 
+  get 'cities/:state', to: 'application#cities'
+
   get 'companies/search_by_city' => 'companies#search_by_city'
   resources :companies
   resources :vacancies
