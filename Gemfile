@@ -5,6 +5,9 @@ gem 'cancancan'
 gem 'geokit'
 gem 'city-state'
 gem 'pg'
+gem 'twitter-bootstrap-rails'
+gem "therubyracer"
+gem "less-rails"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
@@ -48,8 +51,6 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem 'twitter-bootstrap-rails'
-  gem "therubyracer"
-  gem "less-rails"
+  
 end
 
